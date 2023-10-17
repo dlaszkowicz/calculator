@@ -14,25 +14,33 @@ const equal = document.querySelector(".equal");
 
 function addFun(x, y) {
   mainScreen.textContent = x + y;
+  upperScreen.textContent = "";
+  operator = "";
 }
 function substractFun(x, y) {
   mainScreen.textContent = x - y;
+  upperScreen.textContent = "";
+  operator = "";
 }
 function multiplyFun(x, y) {
   mainScreen.textContent = x * y;
+  upperScreen.textContent = "";
+  operator = "";
 }
 function divideFun(x, y) {
   mainScreen.textContent = x / y;
+  upperScreen.textContent = "";
+  operator = "";
 }
 function operateFun(op, x, y) {
   if (op === "add") {
-    add(x, y);
+    addFun(x, y);
   } else if (op == "substract") {
-    substract(x, y);
+    substractFun(x, y);
   } else if (op == "multiply") {
-    multiply(x, y);
+    multiplyFun(x, y);
   } else if (op == "divide") {
-    divide(x, y);
+    divideFun(x, y);
   }
 }
 function display() {
@@ -94,6 +102,6 @@ deleteButton.addEventListener("click", function () {
   mainScreen.textContent = mainScreen.textContent.slice(0, -1);
 });
 equal.addEventListener("click", function () {
-  sNum = mainScreen.textContent;
+  sNum = Number(mainScreen.textContent);
   operateFun(operator, fNum, sNum);
 });
